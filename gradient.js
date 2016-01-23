@@ -19,7 +19,7 @@ function generateGradients(num) {
 }
 
 // how long for each transition
-var transition_time = 5;
+var transitionTime = 5;
 // how many frames per second
 var fps = 45;
 
@@ -30,7 +30,7 @@ var interval_time = Math.round(1000/fps); // how often to interval
 var currentIndex = 0; // where we are in the gradients array
 var nextIndex = 1; // what index of the gradients array is next
 var steps_count = 0; // steps counter
-var steps_total = Math.round(transition_time * fps); // total amount of steps
+var stepsTotal = Math.round(transitionTime * fps); // total amount of steps
 var rgb_steps = {
 	start: [0,0,0],
 	stop: [0,0,0]
@@ -53,7 +53,7 @@ function set_next(num) {
 
 // work out how big each rgb step is
 function calc_step_size(a,b) {
-	return (a - b) / steps_total;
+	return (a - b) / stepsTotal;
 }
 
 // populate the rgb_values and rgb_steps objects
@@ -112,7 +112,7 @@ function updateGradient() {
   // we did another step
   steps_count++;
   // did we do too many steps?
-  if (steps_count > steps_total) {
+  if (steps_count > stepsTotal) {
     // reset steps count
     steps_count = 0;
     // set new indexs
